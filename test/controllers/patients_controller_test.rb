@@ -87,7 +87,7 @@ class PatientsControllerTest < ActionController::TestCase
     before do
       @date = 5.days.from_now.to_date
       @payload = {
-        appointment_date: @date.strftime('%Y-%m-%d'), name: 'Susie Everyteen 2',
+        appointment_date: @date.strftime('%m-%d-%Y'), name: 'Susie Everyteen 2',
         pregnancy: { resolved_without_dcaf: true },
         clinic: { name: 'Sample Clinic 2', id: @clinic.id }
       }

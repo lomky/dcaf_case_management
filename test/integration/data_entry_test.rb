@@ -29,7 +29,7 @@ class DataEntryTest < ActionDispatch::IntegrationTest
       fill_in 'Age', with: '30'
       select 'Other', from: 'patient_race_ethnicity'
       select 'Sample Clinic 1', from: 'patient_clinic_name'
-      fill_in 'Appointment date', with: 1.day.ago.strftime('%Y-%m-%d')
+      fill_in 'Appointment date', with: 1.day.ago.strftime('%m-%d-%Y')
       select 'DC Medicaid', from: 'patient_insurance'
       select '1', from: 'patient_household_size_adults'
       select '2', from: 'patient_household_size_children'
@@ -54,7 +54,7 @@ class DataEntryTest < ActionDispatch::IntegrationTest
         assert_equal '1', lmp_weeks.value
         assert_equal '2', lmp_days.value
         assert has_field?('Appointment date',
-                          with: 1.day.ago.strftime('%Y-%m-%d'))
+                          with: 1.day.ago.strftime('%m-%d-%Y'))
         assert has_field? 'Phone number', with: '111-222-3344'
       end
     end

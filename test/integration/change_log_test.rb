@@ -24,7 +24,7 @@ class ChangeLogTest < ActionDispatch::IntegrationTest
     # not yet enabled
     # it 'should log pregnancy accessibly' do
     #   select '5 weeks', from: 'patient_pregnancy_last_menstrual_period_weeks'
-    #   fill_in 'Appointment date', with: 2.days.from_now.strftime('%Y-%m-%d')
+    #   fill_in 'Appointment date', with: 2.days.from_now.strftime('%m-%d-%Y')
     #   visit edit_patient_path(@patient)
     #   wait_for_element 'Change Log'
     #   click 'Change Log'

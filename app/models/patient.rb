@@ -76,7 +76,8 @@ class Patient
   validates :other_phone, format: /\d{10}/,
                           length: { is: 10 },
                           allow_blank: true
-  validates :appointment_date, format: /\A\d{4}-\d{1,2}-\d{1,2}\z/,
+  validates :appointment_date, format: /\A\d{1,2}-\d{1,2}-\d{4}\z/,
+  #validates :appointment_date, format: /\A\d{4}-\d{1,2}-\d{1,2}\z/,
                                allow_blank: true
 
   validate :confirm_appointment_after_initial_call

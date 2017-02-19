@@ -19,8 +19,8 @@
           <%= f.fields_for patient.fulfillment do |pt| %>
             <%= pt.datetime_picker :procedure_date, 
                                   label: 'Procedure date',
-                                  autocomplete: 'off', format: '%Y-%m-%d',
-                                  placeholder: 'YYYY-MM-DD' %>
+                                  autocomplete: 'off', format: '%m-%d-%Y',
+                                  placeholder: 'MM-DD-YYYY' %>
             <%= pt.select :gestation_at_procedure, 
                           options_for_select(weeks_options, patient.fulfillment.gestation_at_procedure),
                           label: 'Weeks along at procedure',
