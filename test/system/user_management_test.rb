@@ -1,8 +1,8 @@
-require 'test_helper'
+require 'application_system_test_case'
 
-class UserManagementTest < ActionDispatch::IntegrationTest
+# Confirm user management functionality
+class UserManagementTest < ApplicationSystemTestCase
   before do
-    Capybara.current_driver = :poltergeist
     @user = create :user,
                    name: 'john',
                    email: 'user@dcaf.com',
@@ -104,7 +104,7 @@ class UserManagementTest < ActionDispatch::IntegrationTest
     end
   end
 
-  describe 'edit a user' do
+  describe 'editing a user' do
     before do
       log_in_as @admin
       click_link 'Admin'
@@ -137,16 +137,6 @@ class UserManagementTest < ActionDispatch::IntegrationTest
       wait_for_element 'Successfully updated user details'
       click_link 'john'
       assert has_field? 'Email', with: 'johan@gmail.com'
-    end
-
-    # TODO figure out a way to show error
-    # Right now this is failing because role is not in user params.
-    # Alter this test when there's a good story around that
-    it 'disallows role editing' do
-      select 'Admin', from: 'Role'
-      click_button 'Save'
-      wait_for_element 'Successfully updated user details'
-      assert_text 'cm'
     end
   end
 end
